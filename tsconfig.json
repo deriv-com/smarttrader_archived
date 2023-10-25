@@ -21,18 +21,20 @@
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
 
-        /* Absolute path */
-        "baseUrl": "./src/",
-        "paths": {
-            "Components/*": ["components/*"],
-            "Constants/*": ["constants/*"],
-            "Contexts/*": ["contexts/*"],
-            "Hooks/*": ["hooks/*"],
-            "Utils/*": ["utils/*"],
-            "Styles/*": ["styles/*"],
-            "Translations/*": ["translations/*"]
-        }
-    },
-    "include": ["src", "stories/*.stories.tsx", "stories"],
-    "references": [{ "path": "./tsconfig.node.json" }]
+    /* Absolute path */
+    "baseUrl": "./src/",
+    "paths": {
+      "Api/*": ["api/*"],
+      "Components/*": ["components/*"],
+      "Constants/*": ["constants/*"],
+      "Contexts/*": ["contexts/*"],
+      "Styles/*": ["styles/*"],
+      "Translations/*": ["translations/*"],
+      "Types/*": ["types/*"],
+      "Utils/*": ["utils/*"],
+    }
+  },
+  "include": ["src", "stories/*.stories.tsx", "stories"],
+  "files": ["./src/types/utils.d.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

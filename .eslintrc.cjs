@@ -10,4 +10,9 @@ module.exports = {
         'import/no-extraneous-dependencies': ['warn', { devDependencies: true }],
         'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     },
+    settings: {
+          react: {
+            version: "detect"
+        }
+    }  
 };
