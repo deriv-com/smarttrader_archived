@@ -59,6 +59,11 @@ module.exports = {
         body: 1.375,
         base: 1
       },
+      fontWeight: {
+        normal: 400,
+        medium: 500,
+        bold: 700,
+      },
       screens: {
         sm: "576px",
         // => @media (min-width: 576px) { ... }
