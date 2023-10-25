@@ -4,7 +4,7 @@
 
 @layer base {
     body {
-        @apply font-ibm text-prominent leading-body text-base font-normal overflow-x-hidden;
+        @apply overflow-x-hidden font-ibm text-base font-normal leading-body text-prominent;
     }
     p {
         @apply mb-4;
@@ -14,8 +14,8 @@
     h3,
     h4,
     h5,
-    h6{
-        @apply font-ibm text-prominent leading-base font-bold;
+    h6 {
+        @apply font-ibm font-bold leading-base text-prominent;
     }
     h3,
     .h3 {
