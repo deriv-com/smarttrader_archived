@@ -56,7 +56,7 @@ const AccountSwitcher = () => {
                     className='absolute bottom-5 right-1/2 translate-x-1/2 transform text-[14px] font-medium text-red-500 hover:cursor-pointer'
                     href='/'
                 >
-                    Looking for CFDs? Go to Trader's Hub
+                    {"Looking for CFDs? Go to Trader's Hub"}
                 </a>
             </DropdownMenuContent>
         </DropdownMenu>
