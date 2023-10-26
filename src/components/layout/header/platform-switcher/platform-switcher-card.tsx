@@ -1,7 +1,7 @@
 import React from 'react';
 import { TAvailableApp } from '.';
 
-const AccountSwitcherCard = (item: TAvailableApp) => {
+const PlatformSwitcherCard = (item: TAvailableApp) => {
     const { src, title, alt, path } = item;
 
     return (
@@ -14,4 +14,4 @@ const AccountSwitcherCard = (item: TAvailableApp) => {
     );
 };
 
-export default AccountSwitcherCard;
+export default PlatformSwitcherCard;
