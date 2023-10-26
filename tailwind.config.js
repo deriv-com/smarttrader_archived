@@ -72,7 +72,9 @@ module.exports = {
         container: false,
     },
     plugins: [
+        // eslint-disable-next-line global-require
         require('tailwindcss-animate'),
+        // eslint-disable-next-line func-names
         function addComponentsFunc({ addComponents }) {
             addComponents({
                 '.container': {
