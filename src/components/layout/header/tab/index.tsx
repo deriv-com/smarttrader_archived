@@ -1,4 +1,5 @@
 import { cn } from 'Utils/cn';
+import { useTranslation } from 'react-i18next';
 
 type TTabItemProps = {
     className?: string;
@@ -21,11 +22,12 @@ const TabItem = ({ label, imageUrl, className }: TTabItemProps) => {
 };
 
 const Tab = () => {
+    const { t } = useTranslation();
     return (
         <div className='mx-2 flex h-full flex-row items-center'>
-            <TabItem imageUrl='/images/pages/header/ic-appstore-home.svg' label="Trader's Hub" />
-            <TabItem imageUrl='/images/pages/header/ic-reports.svg' label='Reports' />
-            <TabItem imageUrl='/images/pages/header/ic-cashier.svg' label='Cashier' />
+            <TabItem imageUrl='/images/pages/header/ic-appstore-home.svg' label={t("Trader's Hub")} />
+            <TabItem imageUrl='/images/pages/header/ic-reports.svg' label={t('Reports')} />
+            <TabItem imageUrl='/images/pages/header/ic-cashier.svg' label={t('Cashier')} />
         </div>
     );
 };
