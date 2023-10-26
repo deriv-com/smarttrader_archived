@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent } from '../../../ui/dropdown-menu/index';
 import PlatformSwitcherCard from './platform-switcher-card';
 
@@ -10,6 +11,8 @@ export interface TAvailableApp {
 }
 
 const PlatformSwitcher = () => {
+    const { t } = useTranslation();
+
     const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
     const handleDropdownToggle = () => {
@@ -45,7 +48,13 @@ const PlatformSwitcher = () => {
 
     return (
         <DropdownMenu open={isDropdownOpen} onOpenChange={handleDropdownToggle}>
-            <DropdownMenuTrigger className='m-10 hover:cursor-pointer'>account switcher</DropdownMenuTrigger>
+            <DropdownMenuTrigger className='m-10 hover:cursor-pointer'>
+                <div className='flex cursor-pointer flex-row items-center gap-2 px-base hover:bg-disabled-100'>
+                    <img src='/images/pages/header/logo_smart_trader.svg' />
+                    <div className='text-fontSize-base font-bold'>{t('SmartTrader')}</div>
+                    <img src='/images/pages/header/ic-chevron-down.svg' />
+                </div>
+            </DropdownMenuTrigger>
             {isDropdownOpen && (
                 <div className='fixed inset-0 top-32 hidden bg-black/[0.72] opacity-50 md:block lg:block' />
             )}

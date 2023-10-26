@@ -59,12 +59,21 @@ module.exports = {
                 body: 1.375,
                 base: 1,
             },
+            fontWeight: {
+                normal: 400,
+                medium: 500,
+                bold: 700,
+            },
             screens: {
-                sm: '576px',
+                sm: { min: '576px', max: '767px' },
                 // => @media (min-width: 576px) { ... }
+                xs: { max: '575px' },
 
                 md: '768px',
                 // => @media (min-width: 768px) { ... }
+            },
+            spacing: {
+                base: '1rem',
             },
         },
     },
