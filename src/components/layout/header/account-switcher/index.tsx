@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import {
-    DropdownMenu,
-    DropdownMenuTrigger,
-    DropdownMenuContent,
-    DropdownMenuItem,
-} from '../../../ui/dropdown-menu/index';
-import clsx from 'clsx';
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent } from '../../../ui/dropdown-menu/index';
+import AccountSwitcherCard from './account-switcher-card';
+
+export interface TAvailableApp {
+    src: string;
+    title: string;
+    alt: string;
+    path: string;
+}
 
 const AccountSwitcher = () => {
     const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
@@ -13,58 +15,49 @@ const AccountSwitcher = () => {
     const handleDropdownToggle = () => {
         setDropdownOpen(!isDropdownOpen);
     };
-    type TAvailableApp = {
-        src: string;
-        title: string;
-        alt: string;
-    };
+
     const available_apps: TAvailableApp[] = [
         {
             src: '/images/common/ic-rebranding-deriv-trader.svg',
             title: 'A whole new trading experience on a powerful yet easy to use platform.',
             alt: 'dtrader icon',
+            path: '/',
         },
         {
-            src: '/images/common/ic-rebranding-deriv-trader.svg',
+            src: '/images/common/ic-rebranding-deriv-bot.svg',
             title: 'Automated trading at your fingertips. No coding needed.',
             alt: 'dbot icon',
+            path: '/',
         },
         {
             src: '/ic_smart_trader.svg',
             title: 'Trade the world’s markets with our popular user-friendly platform.',
             alt: 'dsmart trader icon',
+            path: '/',
         },
         {
-            src: '/ic_smart_trader.svg',
+            src: '/images/common/ic-rebranding-binary-bot.svg',
             title: 'Our classic “drag-and-drop” tool for creating trading bots, featuring pop-up trading charts, for advanced users.',
             alt: 'binary bot icon',
+            path: '/',
         },
     ];
-    const available_platforms = (item: TAvailableApp) => {
-        const { src, title, alt } = item;
-        return (
-            <div
-                className='flex flex-col gap-5 rounded-md px-5 py-5 hover:cursor-pointer  hover:bg-disabled-100'
-                key={title}
-            >
-                <img className='w-36' src={src} alt={alt} />
-                <span>{title}</span>
-            </div>
-        );
-    };
 
     return (
         <DropdownMenu open={isDropdownOpen} onOpenChange={handleDropdownToggle}>
             <DropdownMenuTrigger className='m-10 hover:cursor-pointer'>account switcher</DropdownMenuTrigger>
             {isDropdownOpen && (
-                <div className='bg-blackOverlay fixed inset-0 top-32 hidden opacity-50 md:block lg:block' />
+                <div className='fixed inset-0 top-32 hidden bg-black/[0.72] opacity-50 md:block lg:block' />
             )}
-            <DropdownMenuContent className='relative  grid w-screen grid-cols-1 bg-white hover:border-transparent md:grid-cols-2 lg:grid-cols-4'>
-                {available_apps?.map(item => (
-                    <DropdownMenuItem className={clsx('m-5 hover:border-transparent')} key={item.title}>
-                        {available_platforms(item)}
-                    </DropdownMenuItem>
-                ))}
+            <DropdownMenuContent className='relative grid w-screen grid-cols-1 bg-white hover:border-transparent md:grid-cols-2 lg:h-72 lg:grid-cols-4'>
+                {available_apps?.map(item => <AccountSwitcherCard key={item.title} {...item} />)}
+
+                <a
+                    className='absolute bottom-5 right-1/2 translate-x-1/2 transform text-[14px] font-medium text-red-500 hover:cursor-pointer'
+                    href='/'
+                >
+                    Looking for CFDs? Go to Trader's Hub
+                </a>
             </DropdownMenuContent>
         </DropdownMenu>
     );

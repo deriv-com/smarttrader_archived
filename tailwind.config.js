@@ -35,7 +35,6 @@ module.exports = {
                 warning: '#ffad3a',
                 info: '#377cfc',
                 transparent: 'transparent',
-                blackOverlay: 'rgba(0, 0, 0, 0.72)',
             },
             backgroundImage: {
                 'gradient-success': 'linear-gradient(to top, #ffffff, rgba(75, 180, 179, 0.16))',
