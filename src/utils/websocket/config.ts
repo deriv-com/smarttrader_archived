@@ -25,11 +25,7 @@ export const getAppId = () => {
     } else {
         window.localStorage.removeItem('config.default_app_id');
         const current_domain = getCurrentDomain();
-        // TODO: remove is_new_app && deriv.com check when repos are split
-        app_id =
-            current_domain !== 'deriv.com'
-                ? PRODUCTION_APP_ID
-                : domain_app_ids[current_domain as keyof typeof domain_app_ids] || PRODUCTION_APP_ID;
+        app_id = domain_app_ids[current_domain as keyof typeof domain_app_ids] || PRODUCTION_APP_ID;
     }
     return app_id;
 };
@@ -45,12 +41,13 @@ export const getSocketURL = () => {
 
     let active_loginid_from_url;
     const search = window.location.search;
+
     if (search) {
         const params = new URLSearchParams(document.location.search.substring(1));
         active_loginid_from_url = params.get('acct1');
     }
 
-    const loginid = window.localStorage.getItem('active_loginid') || active_loginid_from_url;
+    const loginid = window.localStorage.getItem('active_loginId') || active_loginid_from_url;
     const is_real = loginid && !/^(VRT|VRW|VRTC)/.test(loginid);
 
     const server_url = SERVER_URL(Boolean(is_real));
