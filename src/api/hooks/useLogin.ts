@@ -6,7 +6,7 @@ import { useEffect, useMemo } from 'react';
 const useLogin = () => {
     const search = window.location.search;
     const client_account_params = readLoginQueryParams();
-    const { data: client_info } = useAuthorize();
+    const { data: client_info, isSuccess } = useAuthorize();
     let is_logged_in = false;
 
     if (localStorage.getItem('active_loginId')) {
@@ -25,7 +25,7 @@ const useLogin = () => {
             if (search) deleteQueryParams();
         }
     }, [client_info, client_account_params, client_object, search]);
-    return { is_logged_in };
+    return { is_logged_in, isAuthorized: isSuccess };
 };
 
 export default useLogin;
