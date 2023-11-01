@@ -27,7 +27,7 @@ module.exports = {
                     100: '#e6e9e9',
                     200: '#d6d6d6',
                 },
-                prominent: ' #333333',
+                prominent: '#333333',
                 'colored-barrier': '#008000',
                 active: '#d6dadb',
                 danger: '#ec3f3f',
