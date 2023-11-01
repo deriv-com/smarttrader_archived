@@ -22,6 +22,9 @@ module.exports = {
                     hover: '#eb3e48',
                 },
                 secondary: '#999999',
+                tertiary: {
+                    hover: 'rgba(255,68,79,.08)',
+                },
                 disabled: {
                     DEFAULT: '#eaeced',
                     100: '#e6e9e9',

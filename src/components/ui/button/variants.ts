@@ -12,6 +12,7 @@ export const buttonVariants = cva(
                 primary: 'border-primary hover:border-primary-hover focus:border-primary-hover',
                 secondary: 'border-secondary',
                 success: 'border-success',
+                tertiary: 'border-none hover:bg-tertiary-hover text-primary',
             },
             size: {
                 default: 'text-base',
@@ -42,6 +43,11 @@ export const buttonVariants = cva(
                 variant: 'outlined',
                 color: 'secondary',
                 className: 'hover:bg-secondary/[0.08] focus:bg-secondary/[0.08]',
+            },
+            {
+                variant: 'contained',
+                color: 'tertiary',
+                className: 'text-green-800',
             },
             {
                 size: ['default', 'md'],
