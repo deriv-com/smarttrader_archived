@@ -1,3 +1,3 @@
-import AccountSwitcher from './account-switcher';
+import AccountSwitcher from './AccountSwitcher';
 
 export default AccountSwitcher;

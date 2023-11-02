@@ -1,3 +1,3 @@
-import LoggedInState from './logged-in-state';
+import LoggedInState from './LoggedInState';
 
 export default LoggedInState;

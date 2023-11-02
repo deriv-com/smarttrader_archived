@@ -1,3 +1,3 @@
-import LoggedOutState from './logged-out-state';
+import LoggedOutState from './LoggedOutState';
 
 export default LoggedOutState;

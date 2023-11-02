@@ -1,3 +1,3 @@
-import PlatformSwitcher from './platform-switcher';
+import PlatformSwitcher from './PlatformSwitcher';
 
 export default PlatformSwitcher;
