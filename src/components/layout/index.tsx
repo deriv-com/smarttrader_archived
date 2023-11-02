@@ -1,6 +1,6 @@
 import { Fragment, PropsWithChildren } from 'react';
 import Header from './header';
-import Footer from './footer';
+import Footer from './Footer';
 
 const Layout = ({ children }: PropsWithChildren) => (
     <Fragment>

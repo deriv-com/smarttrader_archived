@@ -7,12 +7,13 @@ module.exports = {
     plugins: ['react-refresh'],
     rules: {
         'simple-import-sort/imports': 'off',
+        'import/no-unresolved': 'off',
         'import/no-extraneous-dependencies': ['warn', { devDependencies: true }],
         'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     },
     settings: {
-          react: {
-            version: "detect"
-        }
-    }  
+        react: {
+            version: 'detect',
+        },
+    },
 };
