@@ -7,7 +7,7 @@ const mock_props = {
     onChange: vi.fn(),
     value: 'test',
 };
-describe('Dialog', () => {
+describe('Input', () => {
     it('should render the Input component', () => {
         render(<Input {...mock_props} />);
         expect(screen.getByDisplayValue('test')).toBeInTheDocument();

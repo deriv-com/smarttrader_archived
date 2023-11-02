@@ -46,50 +46,48 @@ const Input = forwardRef<HTMLInputElement, TInputProps>(
         ref
     ) => {
         return (
-            <div className='my-3 flex flex-col px-2'>
-                <div className='flex w-full flex-row items-center gap-2'>
-                    {labelAlignment === 'left' && <Label id={id} label={label} className={labelClassname} />}
-                    <div className='relative flex w-full items-center'>
-                        {leadingIcon &&
-                            cloneElement(leadingIcon, {
-                                className: cn(
-                                    'absolute left-4 ',
-                                    { 'opacity-50': props.disabled },
-                                    leadingIcon.props.className
-                                ),
-                            })}
-                        <input
-                            type={type}
-                            className={cn(
-                                'my-1 w-full rounded-[5px] border px-2 py-1 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
-                                { 'border-danger text-danger': error },
-                                className
-                            )}
-                            ref={ref}
-                            {...props}
-                        />
-                        {trailingIcon &&
-                            cloneElement(trailingIcon, {
-                                className: cn(
-                                    'absolute right-4',
-                                    { 'opacity-50': props.disabled },
-                                    trailingIcon.props.className
-                                ),
-                            })}
-                        {hint && (
-                            <span
-                                className={cn(
-                                    'absolute bottom-[-1rem] text-[0.75rem]',
-                                    { 'italic text-danger': error },
-                                    hintClassname
-                                )}
-                            >
-                                {hint}
-                            </span>
+            <div className='my-3 flex w-full flex-row items-center gap-2 px-2'>
+                {labelAlignment === 'left' && <Label id={id} label={label} className={labelClassname} />}
+                <div className='relative flex w-full items-center'>
+                    {leadingIcon &&
+                        cloneElement(leadingIcon, {
+                            className: cn(
+                                'absolute left-4 ',
+                                { 'opacity-50': props.disabled },
+                                leadingIcon.props.className
+                            ),
+                        })}
+                    <input
+                        type={type}
+                        className={cn(
+                            'my-1 w-full rounded-[5px] border px-2 py-1 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
+                            { 'border-danger text-danger': error },
+                            className
                         )}
-                    </div>
-                    {labelAlignment === 'right' && <Label id={id} label={label} className={labelClassname} />}
+                        ref={ref}
+                        {...props}
+                    />
+                    {trailingIcon &&
+                        cloneElement(trailingIcon, {
+                            className: cn(
+                                'absolute right-4',
+                                { 'opacity-50': props.disabled },
+                                trailingIcon.props.className
+                            ),
+                        })}
+                    {hint && (
+                        <span
+                            className={cn(
+                                'absolute bottom-[-1rem] text-[0.75rem]',
+                                { 'italic text-danger': error },
+                                hintClassname
+                            )}
+                        >
+                            {hint}
+                        </span>
+                    )}
                 </div>
+                {labelAlignment === 'right' && <Label id={id} label={label} className={labelClassname} />}
             </div>
         );
     }
