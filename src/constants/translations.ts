@@ -28,10 +28,8 @@ const getInitialLanguage = () => {
 
     if (queryLang) {
         const queryLangUppercase = queryLang.toUpperCase();
-        if (queryLangUppercase) {
-            localStorage.setItem(LANGUAGE_KEY, queryLangUppercase);
-            return queryLangUppercase;
-        }
+        localStorage.setItem(LANGUAGE_KEY, queryLangUppercase);
+        return queryLangUppercase;
     }
 
     if (localStorageLanguage) {
