@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import PlatformCard from '../platform-card';
+import PlatformCard from '../PlatformCard';
 
 describe('PlatformCard component', () => {
     const mockData = {

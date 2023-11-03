@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { TPlatformCard } from './data';
+import { TPlatformCard } from './Data';
 
 const PlatformCard = ({ src, title, alt, path }: TPlatformCard) => {
     const { t } = useTranslation();
