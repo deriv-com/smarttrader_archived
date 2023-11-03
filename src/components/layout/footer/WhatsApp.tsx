@@ -1,12 +1,20 @@
-// TODO complete the functionality + add tests + complete the ui
+import { useTranslation } from 'react-i18next';
 import Tooltip from 'Components/common/tooltip';
+import { whatsAppURL } from 'Constants/urls';
 
 const WhatsApp = () => {
+    const { t } = useTranslation();
+
     return (
-        <Tooltip content='WhatsApp'>
-            <button className='h-9 px-2 hover:bg-disabled-100'>
-                <img src='/images/pages/footer/ic-whatsapp.svg' alt='Whatsapp icon' />
-            </button>
+        <Tooltip content={t('WhatsApp')}>
+            <a
+                href={whatsAppURL}
+                target='_blank'
+                rel='noreferrer'
+                className='flex h-9 items-center px-2 hover:bg-disabled-100'
+            >
+                <img src='/images/pages/footer/ic-whatsapp.svg' alt='WhatsApp icon' />
+            </a>
         </Tooltip>
     );
 };

@@ -1,9 +1,16 @@
-// TODO complete the functionality + add tests + complete the ui
+import { useTranslation } from 'react-i18next';
+import Tooltip from 'Components/common/tooltip';
+
+// TODO complete the functionality + add tests
 const NetworkStatus = () => {
+    const { t } = useTranslation();
+
     return (
-        <div>
-            <p>NetworkStatus</p>
-        </div>
+        <Tooltip content={t('Network status: Online')}>
+            <div className='px-3'>
+                <div className='h-2 w-2 rounded-full bg-success' />
+            </div>
+        </Tooltip>
     );
 };
 

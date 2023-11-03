@@ -1,4 +1,5 @@
 import { MouseEvent, useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Tooltip from 'Components/common/tooltip';
 
 const fullScreen = {
@@ -9,6 +10,7 @@ const fullScreen = {
 };
 
 const FullScreen = () => {
+    const { t } = useTranslation();
     const [isFullScreen, setIsFullScreen] = useState(false);
     const { screenChange, screenElement, request, exit } = fullScreen;
     const iconSrc = `/images/pages/footer/${isFullScreen ? 'ic-full-screen-restore.svg' : 'ic-fullscreen.svg'}`;
@@ -40,7 +42,7 @@ const FullScreen = () => {
     };
 
     return (
-        <Tooltip content='Full screen'>
+        <Tooltip content={t('Full screen')}>
             <button onClick={toggleFullScreen} className='h-9 px-2 hover:bg-disabled-100'>
                 <img src={iconSrc} alt='Full screen icon' />
             </button>

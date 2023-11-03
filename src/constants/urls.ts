@@ -21,8 +21,6 @@ export const derivUrls = Object.freeze({
     BINARYBOT_STAGING: `https://staging-bot.${domainUrl}`,
 });
 
-export const whatsappUrl = 'https://wa.me/35699578341';
-
 let defaultLanguage: string;
 
 const normalizePath = (path: string) => (path ? path.replace(/(^\/|\/$|[^a-zA-Z0-9-_./()#])/g, '') : '');
@@ -48,3 +46,7 @@ export const getStaticUrl = (path: string) => {
 export const setUrlLanguage = (language: string) => {
     defaultLanguage = language;
 };
+
+// URLS
+export const helpCenterURL = '/help-centre/';
+export const whatsAppURL = 'https://wa.me/35699578341';

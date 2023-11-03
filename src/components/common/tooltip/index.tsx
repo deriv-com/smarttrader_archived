@@ -11,7 +11,7 @@ const Tooltip = ({ content, children, asChild }: PropsWithChildren<TTooltip>) =>
         <Root>
             <Trigger asChild={asChild}>{children}</Trigger>
             <Portal>
-                <Content className='rounded-[4px] bg-active p-1 text-xs text-prominent' sideOffset={5}>
+                <Content className='rounded-[4px] bg-active p-2 text-xs text-prominent' sideOffset={5}>
                     {content}
                     <Arrow className='fill-active' />
                 </Content>
