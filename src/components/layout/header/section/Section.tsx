@@ -1,13 +1,13 @@
 import { cn } from 'Utils/cn';
 import { useTranslation } from 'react-i18next';
 
-type TTabItemProps = {
+type TSectionItemProps = {
     className?: string;
     imageUrl: string;
     label: string;
 };
 
-const TabItem = ({ label, imageUrl, className }: TTabItemProps) => {
+const SectionItem = ({ label, imageUrl, className }: TSectionItemProps) => {
     return (
         <a
             className={cn(
@@ -21,15 +21,15 @@ const TabItem = ({ label, imageUrl, className }: TTabItemProps) => {
     );
 };
 
-const Tab = () => {
+const Section = () => {
     const { t } = useTranslation();
     return (
         <div className='mx-2 flex h-full flex-row items-center'>
-            <TabItem imageUrl='/images/pages/header/ic-appstore-home.svg' label={t("Trader's Hub")} />
-            <TabItem imageUrl='/images/pages/header/ic-reports.svg' label={t('Reports')} />
-            <TabItem imageUrl='/images/pages/header/ic-cashier.svg' label={t('Cashier')} />
+            <SectionItem imageUrl='/images/pages/header/ic-appstore-home.svg' label={t("Trader's Hub")} />
+            <SectionItem imageUrl='/images/pages/header/ic-reports.svg' label={t('Reports')} />
+            <SectionItem imageUrl='/images/pages/header/ic-cashier.svg' label={t('Cashier')} />
         </div>
     );
 };
 
-export default Tab;
+export default Section;

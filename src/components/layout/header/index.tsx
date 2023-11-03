@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PlatformSwitcher from './platform-switcher';
-import Tab from './tab';
+import Section from './section';
 import LoggedOutState from './logged-out-state';
 import LoggedInState from './logged-in-state';
 
@@ -14,7 +14,7 @@ const Header = () => {
                 </div>
                 <div className='flex flex-row sm:hidden xs:hidden'>
                     <PlatformSwitcher />
-                    {is_logged_in && <Tab />}
+                    {is_logged_in && <Section />}
                 </div>
             </div>
             {is_logged_in ? (
