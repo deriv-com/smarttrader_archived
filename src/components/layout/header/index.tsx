@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import PlatformSwitcher from './platform-switcher';
+import PlatformSwitcher from './platform-switcher/platform-switcher-component';
 import Tab from './tab';
 import LoggedOutState from './logged-out-state';
 import LoggedInState from './logged-in-state';
