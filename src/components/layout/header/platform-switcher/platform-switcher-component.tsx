@@ -25,7 +25,10 @@ const PlatformSwitcher = () => {
             {isDropdownOpen && (
                 <div className='fixed inset-0 top-32 hidden bg-black/[0.72] opacity-50 md:block lg:block' />
             )}
-            <DropdownMenuContent className='lg:h-68 relative grid w-screen grid-cols-1 bg-white hover:border-transparent md:grid-cols-2 lg:grid-cols-4'>
+            <DropdownMenuContent
+                data-testid='dropdown-content'
+                className='lg:h-68 relative grid w-screen grid-cols-1 bg-white hover:border-transparent md:grid-cols-2 lg:grid-cols-4'
+            >
                 {available_apps?.map(item => <PlatformCard key={item.title} {...item} />)}
 
                 <a
