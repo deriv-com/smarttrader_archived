@@ -1,15 +1,14 @@
-import { PropsWithChildren } from 'react';
+import { HTMLAttributes, PropsWithChildren } from 'react';
 import { Provider, Root, Trigger, Portal, Content, Arrow } from '@radix-ui/react-tooltip';
 
-type TTooltip = {
+type TTooltip = HTMLAttributes<HTMLButtonElement> & {
     content: string;
-    asChild?: boolean;
 };
 
-const Tooltip = ({ content, children, asChild }: PropsWithChildren<TTooltip>) => (
+const Tooltip = ({ content, children, ...props }: PropsWithChildren<TTooltip>) => (
     <Provider>
         <Root>
-            <Trigger asChild={asChild}>{children}</Trigger>
+            <Trigger {...props}>{children}</Trigger>
             <Portal>
                 <Content className='rounded-[4px] bg-active p-2 text-xs text-prominent' sideOffset={5}>
                     {content}

@@ -6,14 +6,12 @@ const LanguageSettings = () => {
     const { t } = useTranslation();
 
     return (
-        <Tooltip content={t('Language')}>
-            <button className='h-9 hover:bg-disabled-100'>
-                <img
-                    src='/images/languages/ic-flag-es.svg'
-                    className='h-4 w-auto border-l border-disabled-100 px-3'
-                    alt='test alt'
-                />
-            </button>
+        <Tooltip className='h-full hover:bg-disabled-100' content={t('Language')}>
+            <img
+                src='/images/languages/ic-flag-es.svg'
+                className='h-4 w-auto border-l border-disabled-100 px-3'
+                alt='test alt'
+            />
         </Tooltip>
     );
 };

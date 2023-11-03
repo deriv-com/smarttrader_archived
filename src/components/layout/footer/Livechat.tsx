@@ -6,14 +6,12 @@ const LiveChat = () => {
     const { t } = useTranslation();
 
     return (
-        <Tooltip content={t('Live chat')}>
-            <button className='h-9 hover:bg-disabled-100'>
-                <img
-                    src='/images/pages/footer/ic-live-chat.svg'
-                    className='border-x border-disabled-100 px-2'
-                    alt='Livechat icon'
-                />
-            </button>
+        <Tooltip className='h-full hover:bg-disabled-100' content={t('Live chat')}>
+            <img
+                src='/images/pages/footer/ic-live-chat.svg'
+                className='border-x border-disabled-100 px-2'
+                alt='Livechat icon'
+            />
         </Tooltip>
     );
 };

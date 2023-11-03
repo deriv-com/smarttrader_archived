@@ -42,10 +42,8 @@ const FullScreen = () => {
     };
 
     return (
-        <Tooltip content={t('Full screen')}>
-            <button onClick={toggleFullScreen} className='h-9 px-2 hover:bg-disabled-100'>
-                <img src={iconSrc} alt='Full screen icon' />
-            </button>
+        <Tooltip className='h-full px-2 hover:bg-disabled-100' onClick={toggleFullScreen} content={t('Full screen')}>
+            <img src={iconSrc} alt='Full screen icon' />
         </Tooltip>
     );
 };
