@@ -15,7 +15,7 @@ const PlatformSwitcher = () => {
 
     return (
         <DropdownMenu open={isDropdownOpen} onOpenChange={handleDropdownToggle}>
-            <DropdownMenuTrigger className='m-10 hover:cursor-pointer'>
+            <DropdownMenuTrigger className='hover:cursor-pointer'>
                 <div className='flex cursor-pointer flex-row items-center gap-2 px-base hover:bg-disabled-100'>
                     <img src='/images/pages/header/logo_smart_trader.svg' />
                     <div className='text-fontSize-base font-bold'>{t('SmartTrader')}</div>
@@ -25,7 +25,7 @@ const PlatformSwitcher = () => {
             {isDropdownOpen && (
                 <div className='fixed inset-0 top-32 hidden bg-black/[0.72] opacity-50 md:block lg:block' />
             )}
-            <DropdownMenuContent className='relative grid w-screen grid-cols-1 bg-white hover:border-transparent md:grid-cols-2 lg:h-72 lg:grid-cols-4'>
+            <DropdownMenuContent className='lg:h-68 relative grid w-screen grid-cols-1 bg-white hover:border-transparent md:grid-cols-2 lg:grid-cols-4'>
                 {available_apps?.map(item => <PlatformCard key={item.title} {...item} />)}
 
                 <a
