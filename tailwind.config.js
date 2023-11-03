@@ -27,7 +27,7 @@ module.exports = {
                     100: '#e6e9e9',
                     200: '#d6d6d6',
                 },
-                prominent: ' #333333',
+                prominent: '#333333',
                 'colored-barrier': '#008000',
                 active: '#d6dadb',
                 danger: '#ec3f3f',
@@ -39,17 +39,6 @@ module.exports = {
             backgroundImage: {
                 'gradient-success': 'linear-gradient(to top, #ffffff, rgba(75, 180, 179, 0.16))',
                 'gradient-danger': 'linear-gradient(to top, #ffffff, rgba(255, 68, 79, 0.16))',
-            },
-            fontSize: {
-                base: '1rem',
-                xxs: '1.2rem',
-                xs: '1.4rem',
-                s: '1.6rem',
-                sm: '2rem',
-                m: '2.4rem',
-                l: '3.2rem',
-                xl: '4.8rem',
-                xxl: '6.4rem',
             },
             fontFamily: {
                 roboto: ['Roboto', 'sans-serif'],
