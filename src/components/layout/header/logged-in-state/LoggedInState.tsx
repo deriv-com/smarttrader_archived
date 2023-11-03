@@ -14,7 +14,7 @@ const LoggedInState = () => {
             <AccountSettings />
             <Divider />
             <AccountSwitcher />
-            <Button size='sm' className='mx-[1.6rem] text-[14px] sm:hidden xs:hidden'>
+            <Button size='sm' className='mx-[1.6rem] text-[14px] sm:hidden xs:hidden' asChild>
                 {/* <a href='https://app.deriv.com'> */}
                 {t('Deposit')}
                 {/* </a> */}

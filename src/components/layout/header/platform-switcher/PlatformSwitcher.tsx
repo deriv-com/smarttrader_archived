@@ -17,9 +17,9 @@ const PlatformSwitcher = () => {
         <DropdownMenu open={isDropdownOpen} onOpenChange={handleDropdownToggle}>
             <DropdownMenuTrigger className='hover:cursor-pointer'>
                 <div className='flex cursor-pointer flex-row items-center gap-2 px-base hover:bg-disabled-100'>
-                    <img src='/images/pages/header/logo_smart_trader.svg' />
-                    <div className='text-fontSize-base font-bold'>{t('SmartTrader')}</div>
-                    <img src='/images/pages/header/ic-chevron-down.svg' />
+                    <img src='/images/pages/header/logo_smart_trader.svg' alt='Smarttrader logo' />
+                    <div className='text-base font-bold'>{t('SmartTrader')}</div>
+                    <img src='/images/pages/header/ic-chevron-down.svg' alt='down arrow' />
                 </div>
             </DropdownMenuTrigger>
             {isDropdownOpen && (
@@ -41,5 +41,4 @@ const PlatformSwitcher = () => {
         </DropdownMenu>
     );
 };
-
 export default PlatformSwitcher;
