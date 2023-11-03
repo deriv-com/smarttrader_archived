@@ -31,9 +31,9 @@ const FullScreen = () => {
         const requestFullScreen = request.find(element => document.documentElement[element as keyof HTMLElement]);
 
         if (isFullScreen && exitFullScreen) {
-            document[exitFullScreen as keyof Document]();
+            (document[exitFullScreen as keyof Document] as Document['exitFullscreen'])();
         } else if (requestFullScreen) {
-            document.documentElement[requestFullScreen as keyof HTMLElement]();
+            (document.documentElement[requestFullScreen as keyof HTMLElement] as HTMLElement['requestFullscreen'])();
         } else {
             setIsFullScreen(false); // fullscreen API is not enabled
         }
