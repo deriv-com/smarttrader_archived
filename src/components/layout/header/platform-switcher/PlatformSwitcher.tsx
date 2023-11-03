@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent } from '../../../ui/dropdown-menu';
 import PlatformCard from './PlatformCard';
-import { available_apps } from './Data';
+import { available_apps } from './DataPlatform';
 
 const PlatformSwitcher = () => {
     const { t } = useTranslation();
