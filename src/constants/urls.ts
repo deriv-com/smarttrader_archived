@@ -43,6 +43,10 @@ export const getStaticUrl = (path: string) => {
     return `${host}${lang}/${normalizePath(path)}`;
 };
 
+export const redirectToSignUp = () => {
+    window.open(getStaticUrl('/signup/'));
+};
+
 export const setUrlLanguage = (language: string) => {
     defaultLanguage = language;
 };
@@ -50,3 +54,4 @@ export const setUrlLanguage = (language: string) => {
 // URLS
 export const helpCenterURL = '/help-centre/';
 export const whatsAppURL = 'https://wa.me/35699578341';
+export const accountSettingsURL = 'https://app.deriv.com/account/personal-details';

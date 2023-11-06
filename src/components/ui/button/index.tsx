@@ -14,7 +14,7 @@ export const buttonVariants = cva(
             color: {
                 primary: 'border-primary hover:border-primary-hover focus:border-primary-hover',
                 secondary: 'border-secondary',
-                tertiary: 'border-none hover:bg-tertiary-hover text-primary',
+                tertiary: 'border-none hover:bg-tertiary-hover text-primary cursor-pointer',
                 success: 'border-success',
             },
             size: {
@@ -30,7 +30,7 @@ export const buttonVariants = cva(
             {
                 variant: 'contained',
                 color: 'primary',
-                className: 'bg-primary hover:bg-primary-hover focus:bg-primary-hover',
+                className: 'bg-primary hover:bg-primary-hover focus:bg-primary-hover cursor-pointer',
             },
             {
                 variant: 'contained',
