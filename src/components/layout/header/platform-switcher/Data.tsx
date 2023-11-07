@@ -1,6 +1,6 @@
 export type TPlatformCard = Record<'src' | 'title' | 'alt' | 'path', string>;
 
-export const available_apps: TPlatformCard[] = [
+export const AvailableAppss: TPlatformCard[] = [
     {
         src: '/images/common/ic-rebranding-deriv-trader.svg',
         title: 'A whole new trading experience on a powerful yet easy to use platform.',
