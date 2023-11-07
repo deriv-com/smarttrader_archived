@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent } from 'Components/ui/dropdown-menu';
 import PlatformCard from './PlatformCard';
-import { AvailableAppss } from './Data';
+import { availableApps } from './Data';
 
 const PlatformSwitcher = () => {
     const { t } = useTranslation();
@@ -29,7 +29,7 @@ const PlatformSwitcher = () => {
                 data-testid='dt_dropdown_content'
                 className='lg:h-68 relative grid w-screen grid-cols-1 bg-white hover:border-transparent md:grid-cols-2 lg:grid-cols-4'
             >
-                {AvailableAppss?.map(item => <PlatformCard key={item.title} {...item} />)}
+                {availableApps?.map(item => <PlatformCard key={item.title} {...item} />)}
             </DropdownMenuContent>
         </DropdownMenu>
     );
