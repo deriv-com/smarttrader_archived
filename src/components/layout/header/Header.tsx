@@ -19,15 +19,7 @@ const Header = () => {
                     {is_logged_in && <SectionTab />}
                 </div>
             </div>
-            {is_logged_in ? (
-                <div className='flex h-full items-center'>
-                    <LoggedInState />
-                </div>
-            ) : (
-                <div className='flex h-full items-center'>
-                    <LoggedOutState />
-                </div>
-            )}
+            <div className='flex h-full items-center'>{is_logged_in ? <LoggedInState /> : <LoggedOutState />}</div>
         </div>
     );
 };
