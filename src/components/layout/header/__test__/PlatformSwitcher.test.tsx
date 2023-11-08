@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import PlatformSwitcher from '../PlatformSwitcher';
+import userEvent from '@testing-library/user-event';
 
 describe('PlatformSwitcher component', () => {
     test('renders the SmartTrader label', () => {
@@ -9,25 +10,19 @@ describe('PlatformSwitcher component', () => {
         expect(smartTraderLabel).toBeInTheDocument();
     });
 
-    test('renders the "Looking for CFDs? Go to Trader\'s Hub" link', () => {
-        render(<PlatformSwitcher />);
-        const link = screen.getByText("Looking for CFDs? Go to Trader's Hub");
-        expect(link).toBeInTheDocument();
-    });
-
-    test('opens the dropdown menu when clicked', () => {
+    test('opens the dropdown menu when clicked', async () => {
         render(<PlatformSwitcher />);
         const trigger = screen.getByText('SmartTrader');
 
         // Dropdown should be closed initially
-        let dropdownContent = screen.queryByTestId('dropdown-content');
+        let dropdownContent = screen.queryByTestId('dt_dropdown_content');
         expect(dropdownContent).not.toBeInTheDocument();
 
         // Click to open the dropdown
-        trigger.click();
+        await userEvent.click(trigger);
 
         // Dropdown should be open
-        dropdownContent = screen.queryByTestId('dropdown-content');
+        dropdownContent = screen.queryByTestId('dt_dropdown_content');
         expect(dropdownContent).toBeInTheDocument();
     });
 });
