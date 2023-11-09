@@ -29,7 +29,9 @@ const PlatformSwitcher = () => {
                 data-testid='dt_dropdown_content'
                 className='lg:h-68 relative grid w-screen grid-cols-1 bg-white hover:border-transparent md:grid-cols-2 lg:grid-cols-4'
             >
-                {getAvailableApps()?.map(item => <PlatformCard key={item.title} {...item} />)}
+                {getAvailableApps().map(item => (
+                    <PlatformCard key={item.title} {...item} />
+                ))}
             </DropdownMenuContent>
         </DropdownMenu>
     );
