@@ -1,8 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
 import HelpCenter from '../HelpCenter';
 
-vi.mock('react-i18next', () => ({
+jest.mock('react-i18next', () => ({
     useTranslation: () => ({ t: (key: string) => key }),
 }));
 

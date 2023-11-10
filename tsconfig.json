@@ -6,10 +6,9 @@
         "types": ["node", "@testing-library/jest-dom"],
         "module": "ESNext",
         "skipLibCheck": true,
-
+        "esModuleInterop":true,
         /* Bundler mode */
         "moduleResolution": "bundler",
-        "allowImportingTsExtensions": true,
         "resolveJsonModule": true,
         "isolatedModules": true,
         "noEmit": true,
@@ -34,7 +33,7 @@
       "Utils/*": ["utils/*"],
     }
   },
-  "include": ["src", "stories/*.stories.tsx", "stories"],
+  "include": ["src", "stories/*.stories.tsx", "stories", "setupTests.cjs"],
   "files": ["./src/types/utils.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

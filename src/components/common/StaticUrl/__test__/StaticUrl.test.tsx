@@ -1,15 +1,14 @@
 import { render, screen } from '@testing-library/react';
-import { describe, it, vi, expect } from 'vitest';
 import StaticUrl from '..';
 
 const testUrl = 'testUrl';
 
-vi.mock('Constants/urls', () => ({
+jest.mock('Constants/urls', () => ({
     getStaticUrl: (url: string) => `/mockedUrl/${url}`,
     setUrlLanguage: (language: string) => language,
 }));
 
-vi.mock('Constants/translations', () => ({
+jest.mock('Constants/translations', () => ({
     getLanguage: () => 'en',
 }));
 

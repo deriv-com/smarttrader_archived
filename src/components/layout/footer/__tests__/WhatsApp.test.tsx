@@ -1,9 +1,8 @@
-import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import WhatsApp from '../WhatsApp';
 import { whatsAppURL } from 'Constants/urls';
 
-vi.mock('react-i18next', () => ({
+jest.mock('react-i18next', () => ({
     useTranslation: () => ({ t: (key: string) => key }),
 }));
 
