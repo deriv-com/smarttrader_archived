@@ -1,9 +1,9 @@
 export default {
     setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
-    collectCoverage: false,
+    collectCoverage: true,
     collectCoverageFrom: ['**/*.{js,jsx,ts,tsx}'],
-    coverageReporters: ['lcov'],
-    coverageDirectory: './coverage/',
+    coverageReporters: ['html', 'lcov', 'json'],
+    coverageDirectory: './coverage',
     clearMocks: true,
     preset: 'ts-jest',
     testEnvironment: 'jsdom',
