@@ -1,9 +1,13 @@
-/* eslint-disable global-require */
+import path from 'path';
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+import { fileURLToPath } from 'url';
+import tailwind from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
 
-const path = require('path');
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
 
-module.exports = {
+export default {
     stories: ['../**/*.stories.@(ts|tsx)'],
     framework: '@storybook/react-webpack5',
     addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
@@ -15,12 +19,12 @@ module.exports = {
                     loader: 'postcss-loader',
                     options: {
                         postcssOptions: {
-                            plugins: [require('tailwindcss'), require('autoprefixer')],
+                            plugins: [tailwind, autoprefixer],
                         },
                     },
                 },
             ],
-            include: path.resolve(__dirname, '../'),
+            include: path.resolve(dirname, '../'),
         });
         if (config.resolve) {
             config.resolve.plugins = [new TsconfigPathsPlugin()];

@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-
 import APIProvider from 'Utils/websocket/APIProvider';
 import 'Translations/i18n.ts';
 import 'Styles/main.css';
