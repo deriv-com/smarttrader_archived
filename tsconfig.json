@@ -6,6 +6,7 @@
         "types": ["node", "@testing-library/jest-dom"],
         "module": "ESNext",
         "skipLibCheck": true,
+        "allowImportingTsExtensions": true,
         "esModuleInterop":true,
         /* Bundler mode */
         "moduleResolution": "bundler",
@@ -20,20 +21,23 @@
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
 
-    /* Absolute path */
-    "baseUrl": "./src/",
-    "paths": {
-      "Api/*": ["api/*"],
-      "Components/*": ["components/*"],
-      "Constants/*": ["constants/*"],
-      "Contexts/*": ["contexts/*"],
-      "Styles/*": ["styles/*"],
-      "Translations/*": ["translations/*"],
-      "Types/*": ["types/*"],
-      "Utils/*": ["utils/*"],
-    }
-  },
-  "include": ["src", "stories/*.stories.tsx", "stories", "setupTests.cjs"],
-  "files": ["./src/types/utils.d.ts"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+        /* Absolute path */
+        "baseUrl": "./src/",
+        "paths": {
+            "Api/*": ["api/*"],
+            "Components/*": ["components/*"],
+            "Constants/*": ["constants/*"],
+            "Contexts/*": ["contexts/*"],
+            "Styles/*": ["styles/*"],
+            "Translations/*": ["translations/*"],
+            "Types/*": ["types/*"],
+            "Utils/*": ["utils/*"]
+        }
+    },
+
+    "include": ["src", "stories/*.stories.tsx", "stories"],
+    "files": ["./src/types/utils.d.ts"],
+    "references": [
+      { "path": "./tsconfig.node.json" }
+    ]
 }

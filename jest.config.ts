@@ -1,5 +1,5 @@
 export default {
-    setupFilesAfterEnv: ['<rootDir>/setupTests.cjs'],
+    setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
     collectCoverage: false,
     collectCoverageFrom: ['**/*.{js,jsx,ts,tsx}'],
     coverageReporters: ['lcov'],
