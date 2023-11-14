@@ -2,8 +2,14 @@ import path from 'path';
 import TerserPlugin from 'terser-webpack-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { fileURLToPath } from 'url';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { fileURLToPath } from 'url';
+import { Configuration as WebpackConfiguration } from 'webpack';
+import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
+
+interface Configuration extends WebpackConfiguration {
+    devServer?: WebpackDevServerConfiguration;
+}
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -11,7 +17,7 @@ const dirname = path.dirname(filename);
 const is_release =
     process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging' || process.env.NODE_ENV === 'test';
 
-export default {
+const config: Configuration = {
     entry: {
         index: './src/main.tsx',
     },
@@ -106,3 +112,5 @@ export default {
     ],
     devtool: is_release ? false : 'source-map',
 };
+
+export default config;
