@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, useState } from 'react';
 // @ts-expect-error `@deriv/deriv-api` is not in TypeScript, Hence we ignore the TS error.
 import DerivAPIBasic from '@deriv/deriv-api/dist/DerivAPIBasic';
 import { getAppId, getSocketURL } from './config';
@@ -26,7 +26,7 @@ const getSharedQueryClientContext = (): QueryClient => {
 
 // This is a temporary workaround to share a single `DerivAPIBasic` instance for every unique URL.
 // Later once we have each package separated we won't need this anymore and can remove this.
-const getDerivAPIInstance = (): DerivAPIBasic => {
+export const getDerivAPIInstance = (): DerivAPIBasic => {
     const endpoint = getSocketURL();
     const language = DEFAULT_LANGUAGE; // Need to use the language from the app context.
     const brand = 'deriv';
@@ -48,10 +48,11 @@ const queryClient = getSharedQueryClientContext();
 const APIProvider = ({ children }: PropsWithChildren) => {
     // Use the new API instance if the `standalone` prop is set to true,
     // else use the legacy socket connection.
-    const active_connection = getDerivAPIInstance();
+    const activeConnection = getDerivAPIInstance();
+    const [socketConnection, setSocketConnection] = useState(activeConnection);
 
     return (
-        <APIContext.Provider value={active_connection}>
+        <APIContext.Provider value={{ socketConnection, setSocketConnection }}>
             <QueryClientProvider client={queryClient}>
                 {children}
                 <ReactQueryDevtools />

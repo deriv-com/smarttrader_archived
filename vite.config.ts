@@ -6,6 +6,7 @@ const ALIASES = {
     Components: resolve(__dirname, './src/components'),
     Constants: resolve(__dirname, './src/constants'),
     Contexts: resolve(__dirname, './src/contexts'),
+    Hooks: resolve(__dirname, './src/hooks'),
     Api: resolve(__dirname, './src/api'),
     Utils: resolve(__dirname, './src/utils'),
     Styles: resolve(__dirname, './src/styles'),
