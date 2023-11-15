@@ -22,8 +22,8 @@ const NetworkStatus = () => {
             let reconnectTimeout;
             clearTimeout(reconnectTimeout);
 
-            const closeState = connection.readyState == 2 || connection.readyState == 3;
-            const openState = connection.readyState == 1;
+            const closeState = connection?.readyState == 2 || connection?.readyState == 3;
+            const openState = connection?.readyState == 1;
 
             reconnectTimeout = setTimeout(() => {
                 reconnectTimeout = null;
@@ -31,7 +31,7 @@ const NetworkStatus = () => {
                     const newSocketConnection = getDerivAPIInstance();
                     setSocketConnection(newSocketConnection);
                 } else if (openState) {
-                    connection.send({ ping: 1 }); // get stable status sooner
+                    connection?.send({ ping: 1 }); // get stable status sooner
                 }
             }, 500);
 
@@ -39,7 +39,7 @@ const NetworkStatus = () => {
         } else {
             /* The user is offline */
             window.DerivAPI = {};
-            connection.close();
+            connection?.close();
             setStatus('offline');
         }
     }, [networkStatus, connection, setSocketConnection]);
@@ -54,7 +54,7 @@ const NetworkStatus = () => {
 
     return (
         <Tooltip className='px-3' content={t('Network status: {{tooltip}}', { tooltip })}>
-            <div className={`h-2 w-2 rounded-full ${className}`} />
+            <div data-testid='dt_network_status_circle' className={`h-2 w-2 rounded-full ${className}`} />
         </Tooltip>
     );
 };
