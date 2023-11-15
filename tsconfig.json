@@ -28,6 +28,7 @@
             "Components/*": ["components/*"],
             "Constants/*": ["constants/*"],
             "Contexts/*": ["contexts/*"],
+            "Hooks/*": ["hooks/*"],
             "Styles/*": ["styles/*"],
             "Translations/*": ["translations/*"],
             "Types/*": ["types/*"],

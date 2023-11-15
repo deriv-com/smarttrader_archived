@@ -12,6 +12,7 @@ export default {
         '^Components/(.*)$': '<rootDir>/src/components/$1',
         '^Constants/(.*)$': '<rootDir>/src/constants/$1',
         '^Contexts/(.*)$': '<rootDir>/src/contexts/$1',
+        '^Hooks/(.*)$': '<rootDir>/src/hooks/$1',
         '^Styles/(.*)$': '<rootDir>/src/styles/$1',
         '^Translations$': '<rootDir>/src/translations/$1',
         '^Types/(.*)$': '<rootDir>/src/types/$1',
