@@ -1,15 +1,15 @@
 {
     "compilerOptions": {
-        "target": "ES2020",
+        "target": "es5",
         "useDefineForClassFields": true,
-        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "lib": ["esnext", "DOM", "DOM.Iterable"],
         "types": ["node", "@testing-library/jest-dom"],
         "module": "ESNext",
         "skipLibCheck": true,
-
+        "allowImportingTsExtensions": true,
+        "esModuleInterop":true,
         /* Bundler mode */
         "moduleResolution": "bundler",
-        "allowImportingTsExtensions": true,
         "resolveJsonModule": true,
         "isolatedModules": true,
         "noEmit": true,
@@ -20,22 +20,23 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
-
-    /* Absolute path */
-    "baseUrl": "./src/",
-    "paths": {
-      "Api/*": ["api/*"],
-      "Components/*": ["components/*"],
-      "Constants/*": ["constants/*"],
-      "Contexts/*": ["contexts/*"],
-      "Hooks/*": ["hooks/*"],
-      "Styles/*": ["styles/*"],
-      "Translations/*": ["translations/*"],
-      "Types/*": ["types/*"],
-      "Utils/*": ["utils/*"],
-    }
-  },
-  "include": ["src", "stories/*.stories.tsx", "stories"],
-  "files": ["./src/types/utils.d.ts"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+        "downlevelIteration": true,
+        /* Absolute path */
+        "baseUrl": "./src/",
+        "paths": {
+            "Api/*": ["api/*"],
+            "Components/*": ["components/*"],
+            "Constants/*": ["constants/*"],
+            "Contexts/*": ["contexts/*"],
+            "Styles/*": ["styles/*"],
+            "Translations/*": ["translations/*"],
+            "Types/*": ["types/*"],
+            "Utils/*": ["utils/*"]
+        }
+    },
+    "include": ["src", "stories/*.stories.tsx", "stories","webpack.config.ts"], 
+    "references": [
+      { "path": "./tsconfig.node.json" }
+    ],
+    "files": ["./src/types/utils.d.ts"],
 }

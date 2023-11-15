@@ -1,4 +1,3 @@
-import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Button } from '..';
@@ -11,7 +10,7 @@ describe('Button component', () => {
     });
 
     it('should call the onClick handler when button is clicked', async () => {
-        const onClickMock = vi.fn();
+        const onClickMock = jest.fn();
         render(<Button onClick={onClickMock}>Button</Button>);
         const btnElement = screen.getByText('Button');
         await userEvent.click(btnElement);

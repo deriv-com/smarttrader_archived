@@ -1,9 +1,8 @@
-import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import Input from '..';
 
 const mock_props = {
-    onChange: vi.fn(),
+    onChange: jest.fn(),
     value: 'test',
 };
 describe('Input', () => {

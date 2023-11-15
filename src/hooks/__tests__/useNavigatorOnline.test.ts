@@ -1,4 +1,3 @@
-import { describe, expect, it, vi } from 'vitest';
 import { act, renderHook } from '@testing-library/react';
 import useNavigatorOnline from 'Hooks/useNavigatorOnline';
 
@@ -22,7 +21,7 @@ describe('useNavigatorOnline hook', () => {
 
     it('Should remove event listeners on unmount', () => {
         const { unmount } = renderHook(() => useNavigatorOnline());
-        const removeEventListenerSpy = vi.spyOn(window, 'removeEventListener');
+        const removeEventListenerSpy = jest.spyOn(window, 'removeEventListener');
 
         unmount();
 
