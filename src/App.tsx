@@ -1,5 +1,5 @@
 import ErrorBoundary from 'Components/common/error-boundary';
-import Layout from 'Components/layout';
+import Layout from 'Components/layout/Layout';
 
 const App = () => (
     <ErrorBoundary>
