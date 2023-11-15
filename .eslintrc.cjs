@@ -8,11 +8,12 @@ module.exports = {
     rules: {
         'simple-import-sort/imports': 'off',
         'import/no-extraneous-dependencies': ['warn', { devDependencies: true }],
-        'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+        'react-refresh/only-export-components': ['off', { allowConstantExport: true }],
+        'react/prop-types': [2, { ignore: ['className'] }],
     },
     settings: {
-          react: {
-            version: "detect"
-        }
-    }  
+        react: {
+            version: 'detect',
+        },
+    },
 };

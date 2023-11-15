@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ['./src/**/*.tsx'],
+    content: ['./src/**/*.tsx', './.storybook/*.ts'],
     theme: {
         extend: {
             colors: {
@@ -22,12 +22,15 @@ module.exports = {
                     hover: '#eb3e48',
                 },
                 secondary: '#999999',
+                tertiary: {
+                    hover: 'rgba(255,68,79,.08)',
+                },
                 disabled: {
                     DEFAULT: '#eaeced',
                     100: '#e6e9e9',
                     200: '#d6d6d6',
                 },
-                prominent: ' #333333',
+                prominent: '#333333',
                 'colored-barrier': '#008000',
                 active: '#d6dadb',
                 danger: '#ec3f3f',
@@ -48,12 +51,21 @@ module.exports = {
                 body: 1.375,
                 base: 1,
             },
+            fontWeight: {
+                normal: 400,
+                medium: 500,
+                bold: 700,
+            },
             screens: {
-                sm: '576px',
+                sm: { min: '576px', max: '767px' },
                 // => @media (min-width: 576px) { ... }
+                xs: { max: '575px' },
 
                 md: '768px',
                 // => @media (min-width: 768px) { ... }
+            },
+            spacing: {
+                base: '1rem',
             },
         },
     },
