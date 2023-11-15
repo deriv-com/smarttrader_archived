@@ -1,4 +1,3 @@
-import { beforeEach, describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { TabContainer, TabList, Tab, TabContent, TabPane } from '..';
@@ -54,7 +53,7 @@ describe('Tab Component', () => {
         const tabPanes = screen.getAllByRole('tabpanel');
 
         expect(tabPanes[0]).toHaveAttribute('aria-labelledby', 'test-0-tab');
-        expect(tabPanes).lengthOf(1);
+        expect(tabPanes).toHaveLength(1);
     });
 
     it('should change the active tab on click of non-selected tabs', async () => {

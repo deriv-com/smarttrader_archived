@@ -1,8 +1,7 @@
-import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import FullScreen from '../FullScreen';
 
-vi.mock('react-i18next', () => ({
+jest.mock('react-i18next', () => ({
     useTranslation: () => ({ t: (key: string) => key }),
 }));
 

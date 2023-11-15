@@ -1,9 +1,8 @@
-import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import Header from '..';
 import * as useLoginHooks from 'Api/hooks/useLogin';
 
-vi.mock('react-i18next', () => ({
+jest.mock('react-i18next', () => ({
     // this mock makes sure any components using the translate hook can use it without a warning being shown
     useTranslation: () => {
         return {
@@ -16,7 +15,7 @@ vi.mock('react-i18next', () => ({
 }));
 
 describe('Header', () => {
-    const useLoginSpy = vi.spyOn(useLoginHooks, 'default');
+    const useLoginSpy = jest.spyOn(useLoginHooks, 'default');
     it('should render the component', () => {
         useLoginSpy.mockReturnValue({ is_logged_in: false });
         render(<Header />);
