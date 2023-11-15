@@ -1,10 +1,9 @@
 
 {
     "compilerOptions": {
-        "target": "ES2018",
+        "target": "es5",
         "useDefineForClassFields": true,
-        "lib": ["ES2020","es5",
-        "es6", "DOM", "DOM.Iterable"],
+        "lib": ["esnext", "DOM", "DOM.Iterable"],
         "types": ["node", "@testing-library/jest-dom"],
         "module": "ESNext",
         "skipLibCheck": true,
@@ -22,7 +21,7 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
-
+        "downlevelIteration": true,
         /* Absolute path */
         "baseUrl": "./src/",
         "paths": {
