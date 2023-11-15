@@ -10,7 +10,15 @@ const dirname = path.dirname(filename);
 export default {
     stories: ['../**/*.stories.@(ts|tsx)'],
     framework: '@storybook/react-webpack5',
-    addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+    addons: [
+        '@storybook/addon-links',
+        '@storybook/addon-essentials',
+        '@storybook/addon-interactions',
+        '@storybook/addon-onboarding',
+    ],
+    docs: {
+        autodocs: 'tag',
+    },
     webpackFinal: async config => {
         config.module.rules.push({
             test: /\.css$/,
