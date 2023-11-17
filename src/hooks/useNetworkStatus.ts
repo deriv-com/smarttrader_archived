@@ -12,18 +12,17 @@ const useNetworkStatus = () => {
     const connection = socketConnection.connection;
 
     useEffect(() => {
+        let reconnectTimeout: ReturnType<typeof setTimeout>;
+
         if (networkStatus) {
             /* The user is online */
             setStatus('blinking');
-            /* Will reconnect after the timout if the network status is online and the connection is closed or closing */
-            let reconnectTimeout;
-            clearTimeout(reconnectTimeout);
 
             const closeState = connection?.readyState == 2 || connection?.readyState == 3;
             const openState = connection?.readyState == 1;
 
+            /* Will reconnect after the timout if the network status is online and the connection is closed or closing */
             reconnectTimeout = setTimeout(() => {
-                reconnectTimeout = null;
                 if (networkStatus && closeState) {
                     const newSocketConnection = getDerivAPIInstance();
                     setSocketConnection(newSocketConnection);
@@ -39,6 +38,8 @@ const useNetworkStatus = () => {
             connection?.close();
             setStatus('offline');
         }
+
+        return () => clearTimeout(reconnectTimeout);
     }, [networkStatus, connection, setSocketConnection]);
 
     const statusConfigs = {
