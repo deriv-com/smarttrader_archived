@@ -7,7 +7,7 @@ import ServerTime from './ServerTime';
 import WhatsApp from './WhatsApp';
 
 const Footer = () => (
-    <div className='fixed bottom-0 hidden h-9 w-full items-center justify-end border-t border-general-section-1 md:flex'>
+    <footer className='fixed bottom-0 hidden h-9 w-full items-center justify-end border-t border-general-section-1 md:flex'>
         <NetworkStatus />
         <LanguageSettings />
         <ServerTime />
@@ -15,7 +15,7 @@ const Footer = () => (
         <LiveChat />
         <HelpCenter />
         <FullScreen />
-    </div>
+    </footer>
 );
 
 export default Footer;
