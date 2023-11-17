@@ -5,21 +5,21 @@ import useTicksHistory from 'Api/hooks/useTicksHistory';
 
 type TParams = Parameters<ReturnType<typeof useTicksHistory>['subscribe']>[1];
 const Layout = ({ children }: PropsWithChildren) => {
-    const [symbol, setSymbol] = useState('R_50');
+    const [underlying, setUnderlying] = useState('R_50');
     const [granularity, setGranularity] = useState<TParams>(undefined);
     const { subscribe, unsubscribe } = useTicksHistory();
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         if ('target' in e) {
-            if (e.target.name === 'symbol') setSymbol(e.target.value);
+            if (e.target.name === 'symbol') setUnderlying(e.target.value);
             if (e.target.name === 'granularity') setGranularity(Number(e.target.value) as TParams);
         }
     };
     useEffect(() => {
-        subscribe(symbol, granularity);
+        subscribe(underlying, granularity);
         return () => {
             unsubscribe();
         };
-    }, [subscribe, unsubscribe, symbol, granularity]);
+    }, [subscribe, unsubscribe, underlying, granularity]);
 
     return (
         <Fragment>

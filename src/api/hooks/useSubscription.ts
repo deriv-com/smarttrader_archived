@@ -10,7 +10,7 @@ import type {
 
 const useSubscription = <T extends TSocketSubscribableEndpointNames>(name: T) => {
     const [isLoading, setIsLoading] = useState(false);
-    const [isSubscribed, setSubscribed] = useState(false);
+    const [isSubscribed, setIsSubscribed] = useState(false);
     const [error, setError] = useState<TSocketError<T>>();
     const [data, setData] = useState<TSocketResponseData<T>>();
     const subscriber = useRef<{ unsubscribe?: VoidFunction }>();
@@ -22,7 +22,7 @@ const useSubscription = <T extends TSocketSubscribableEndpointNames>(name: T) =>
             const payload = prop && 'payload' in prop ? (prop.payload as TSocketRequestPayload<T>) : undefined;
 
             setIsLoading(true);
-            setSubscribed(true);
+            setIsSubscribed(true);
 
             try {
                 subscriber.current = _subscribe(name, payload).subscribe(
@@ -44,7 +44,7 @@ const useSubscription = <T extends TSocketSubscribableEndpointNames>(name: T) =>
 
     const unsubscribe = useCallback(() => {
         subscriber.current?.unsubscribe?.();
-        setSubscribed(false);
+        setIsSubscribed(false);
     }, []);
 
     useEffect(() => {
