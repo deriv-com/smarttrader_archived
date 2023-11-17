@@ -18,7 +18,7 @@ const useTicksHistory = () => {
                     ticks_history: symbol,
                     end: 'latest',
                     count: 1000,
-                    granularity: !granularity ? undefined : granularity,
+                    granularity: granularity || undefined,
                     style,
                 },
             });
