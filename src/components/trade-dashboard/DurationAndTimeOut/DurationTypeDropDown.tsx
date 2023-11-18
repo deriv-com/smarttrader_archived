@@ -1,24 +1,28 @@
 import { useTranslation } from 'react-i18next';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from 'Components/ui/dropdown-menu';
 import { useState } from 'react';
-import DurationIndex from './duration/DurationIndex';
+import DurationIndex from './Duration/DurationIndex';
 
-const DurationAndTimeout = () => {
+const DurationTypeDropDown = () => {
     const { t } = useTranslation();
+    const dropDownValues = [
+        { key: 'duration', value: t('Duration') },
+        { key: 'end_time', value: t('End time') },
+    ];
+
     const [isDurationOpen, setDurationOpen] = useState(false);
-    const [selectedDuration, setSelectedDuration] = useState(t('duration'));
+    const [selectedDuration, setSelectedDuration] = useState(dropDownValues[0].key);
 
     const handleDurationToggle = () => setDurationOpen(prev => !prev);
 
     const handleDurationSelect = (value: string) => setSelectedDuration(value);
-    const dropDownValues = [t('duration'), t('end time')];
 
     return (
         <div className='flex items-center justify-start'>
             <DropdownMenu onOpenChange={handleDurationToggle}>
                 <DropdownMenuTrigger className='drop-down-trigger w-40'>
                     <div className='flex items-center justify-around'>
-                        <div>{selectedDuration}</div>
+                        <div>{dropDownValues.find(item => item.key === selectedDuration)?.value}</div>
 
                         <img
                             src='/images/pages/header/ic-chevron-down.svg'
@@ -28,13 +32,13 @@ const DurationAndTimeout = () => {
                     </div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className='drop-down-content w-40'>
-                    {dropDownValues.map(value => (
+                    {dropDownValues.map(item => (
                         <DropdownMenuItem
-                            key={value}
-                            className={value === selectedDuration ? 'drowdown-item-selected' : 'drowdown-item'}
-                            onClick={() => handleDurationSelect(value)}
+                            key={item.key}
+                            className={item.key === selectedDuration ? 'drowdown-item-selected' : 'drowdown-item'}
+                            onClick={() => handleDurationSelect(item.key)}
                         >
-                            <span>{value}</span>
+                            <span>{item.value}</span>
                         </DropdownMenuItem>
                     ))}
                 </DropdownMenuContent>
@@ -44,4 +48,4 @@ const DurationAndTimeout = () => {
     );
 };
 
-export default DurationAndTimeout;
+export default DurationTypeDropDown;

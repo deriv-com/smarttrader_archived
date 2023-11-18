@@ -15,13 +15,18 @@ const TimeDropDown = ({ selectedTimeFrame, setSelectedTimeFrame }: TimeDropDownP
 
     const handleDurationSelect = (value: string) => setSelectedTimeFrame(value);
 
-    const dropDownValues = [t('minutes'), t('hours'), t('days')];
+    const dropDownValues = [
+        { key: 'minutes', value: t('minutes') },
+        { key: 'hours', value: t('hours') },
+        { key: 'days', value: t('days') },
+    ];
 
     return (
         <DropdownMenu onOpenChange={handleTimeToggle}>
             <DropdownMenuTrigger className='drop-down-trigger w-40'>
                 <div className='flex items-center justify-around'>
-                    <div>{selectedTimeFrame}</div>
+                    <div> {dropDownValues.find(item => item.key === selectedTimeFrame)?.value}</div>
+
                     <img
                         src='/images/pages/header/ic-chevron-down.svg'
                         alt='arrow'
@@ -30,13 +35,13 @@ const TimeDropDown = ({ selectedTimeFrame, setSelectedTimeFrame }: TimeDropDownP
                 </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent className='drop-down-content w-40'>
-                {dropDownValues.map(value => (
+                {dropDownValues.map(item => (
                     <DropdownMenuItem
-                        key={value}
-                        className={value === selectedTimeFrame ? 'drowdown-item-selected' : 'drowdown-item'}
-                        onClick={() => handleDurationSelect(value)}
+                        key={item.key}
+                        className={item.key === selectedTimeFrame ? 'drowdown-item-selected' : 'drowdown-item'}
+                        onClick={() => handleDurationSelect(item.key)}
                     >
-                        <span>{value}</span>
+                        <span>{item.value}</span>
                     </DropdownMenuItem>
                 ))}
             </DropdownMenuContent>

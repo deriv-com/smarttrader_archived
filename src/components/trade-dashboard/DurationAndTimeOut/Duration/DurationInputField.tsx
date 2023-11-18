@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { ChangeEvent, useEffect, useState } from 'react';
 import Input from 'Components/ui/input';
+import useContractFor from 'Api/hooks/useContractFor';
 
 type DurationInputFieldProps = {
     selectedTimeFrame: string;
@@ -8,6 +9,8 @@ type DurationInputFieldProps = {
 
 const DurationInputField = ({ selectedTimeFrame }: DurationInputFieldProps) => {
     const { t } = useTranslation();
+
+    const { data, ...rest } = useContractFor('frxAUDJPY');
 
     type TTimeFrameConfig = Record<string, number>;
 
@@ -33,7 +36,7 @@ const DurationInputField = ({ selectedTimeFrame }: DurationInputFieldProps) => {
         hasError: false,
         hintMessage: t('Minimum 15'),
     });
-
+    // console.log(data, rest, 'www');
     useEffect(() => {
         const timeFrameConfig: TTimeFrameConfig = hintValuesAndMessages?.[selectedTimeFrame] || { min: 0, max: 0 };
         setInputValue({ value: '', hasError: false, hintMessage: t(`Minimum ${timeFrameConfig.min}`) });
