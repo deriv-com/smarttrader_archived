@@ -10,7 +10,7 @@ const LoggedInState = () => {
     return (
         <div className='flex h-full flex-row items-center gap-3'>
             <Divider />
-            <Notifications />
+            <Notifications notifications={[{message:"you have one message"}]} />
             <AccountSettings />
             <Divider />
             <AccountSwitcher />
