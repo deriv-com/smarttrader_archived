@@ -47,6 +47,7 @@ const config: Configuration = {
             Components: path.resolve(dirname, 'src/components'),
             Constants: path.resolve(dirname, 'src/constants'),
             Contexts: path.resolve(dirname, 'src/contexts'),
+            Hooks: path.resolve(dirname, 'src/hooks'),
             Api: path.resolve(dirname, 'src/api'),
             Utils: path.resolve(dirname, 'src/utils'),
             Styles: path.resolve(dirname, 'src/styles'),
