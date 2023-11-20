@@ -6,7 +6,7 @@ import SectionTab from './SectionTab';
 
 const Header = () => {
     //logic for uselogin to be changed to add listener to storage
-    const { is_logged_in } = useLogin();
+    const { isLoggedIn } = useLogin();
 
     return (
         <div className='border-section-1 flex h-12 w-full flex-row items-center justify-between border-b'>
@@ -16,10 +16,10 @@ const Header = () => {
                 </div>
                 <div className='flex flex-row sm:hidden xs:hidden'>
                     <PlatformSwitcher />
-                    {is_logged_in && <SectionTab />}
+                    {isLoggedIn && <SectionTab />}
                 </div>
             </div>
-            <div className='flex h-full items-center'>{is_logged_in ? <LoggedInState /> : <LoggedOutState />}</div>
+            <div className='flex h-full items-center'>{isLoggedIn ? <LoggedInState /> : <LoggedOutState />}</div>
         </div>
     );
 };
