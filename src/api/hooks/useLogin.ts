@@ -7,10 +7,10 @@ const useLogin = () => {
     const search = window.location.search;
     const client_account_params = readLoginQueryParams();
     const { data: client_info, isSuccess } = useAuthorize();
-    let is_logged_in = false;
+    let isLoggedIn = false;
 
     if (localStorage.getItem('active_loginId')) {
-        is_logged_in = true;
+        isLoggedIn = true;
     }
 
     const client_object = useMemo(() => {
@@ -25,7 +25,7 @@ const useLogin = () => {
             if (search) deleteQueryParams();
         }
     }, [client_info, client_account_params, client_object, search]);
-    return { is_logged_in, isAuthorized: isSuccess };
+    return { isLoggedIn, isAuthorized: isSuccess };
 };
 
 export default useLogin;
