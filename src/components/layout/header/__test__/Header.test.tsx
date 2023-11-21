@@ -17,14 +17,14 @@ jest.mock('react-i18next', () => ({
 describe('Header', () => {
     const useLoginSpy = jest.spyOn(useLoginHooks, 'default');
     it('should render the component', () => {
-        useLoginSpy.mockReturnValue({ is_logged_in: false });
+        useLoginSpy.mockReturnValue({ isLoggedIn: false, isAuthorized: true });
         render(<Header />);
         expect(screen.getByText('SmartTrader')).toBeInTheDocument();
         expect(screen.getByText('Log in')).toBeInTheDocument();
         expect(screen.getByText('Sign up')).toBeInTheDocument();
     });
     it('should render the layout in the logged in state', () => {
-        useLoginSpy.mockReturnValue({ is_logged_in: true });
+        useLoginSpy.mockReturnValue({ isLoggedIn: true, isAuthorized: true });
         render(<Header />);
         expect(screen.getByText('Deposit')).toBeInTheDocument();
     });

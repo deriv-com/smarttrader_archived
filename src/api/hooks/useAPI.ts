@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 
 import type {
     TSocketEndpointNames,
+    TSocketError,
     TSocketPaginateableEndpointNames,
     TSocketRequestPayload,
     TSocketResponseData,
@@ -36,7 +37,7 @@ const useAPI = () => {
         ): {
             subscribe: (
                 onData: (response: Promise<TSocketResponseData<T>>) => void,
-                onError: (response: Promise<TSocketResponseData<T>>) => void
+                onError: (response: Promise<TSocketError<T>>) => void
             ) => { unsubscribe?: VoidFunction };
         } => socketConnection?.subscribe({ [name]: 1, subscribe: 1, ...(payload || {}) }),
         [socketConnection]
