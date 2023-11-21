@@ -1,11 +1,11 @@
 import Tooltip from 'Components/common/tooltip';
 import useServerTime from 'Hooks/useServerTime';
-import { epochToGMTFormat, epochToLocalFormat } from 'Constants/moment';
+import { epochToLocal, epochToUTC } from 'Utils/moment';
 
 const ServerTime = () => {
     const time = useServerTime();
-    const GMTFormat = epochToGMTFormat(time);
-    const localFormat = epochToLocalFormat(time);
+    const GMTFormat = epochToUTC(time, 'YYYY-MM-DD HH:mm:ss [GMT]');
+    const localFormat = epochToLocal(time, 'YYYY-MM-DD HH:mm:ss Z');
 
     return (
         <Tooltip className='border-x border-disabled-100 px-2 text-xs' content={localFormat}>
