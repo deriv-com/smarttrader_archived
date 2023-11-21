@@ -4,7 +4,7 @@ import useQuery from 'Api/hooks/useQuery';
 const useServerTime = () => {
     const currentDate = Date.now() / 1000;
     const [serverTime, setServerTime] = useState(currentDate);
-    const { data } = useQuery('time', { options: { refetchInterval: 30000, refetchOnWindowFocus: false } });
+    const { data } = useQuery('time', { options: { refetchInterval: 30000 } });
 
     useEffect(() => {
         let timeInterval: ReturnType<typeof setInterval>;
