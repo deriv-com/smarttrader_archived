@@ -1,13 +1,15 @@
-import { useTranslation } from 'react-i18next';
 import Tooltip from 'Components/common/tooltip';
+import useServerTime from 'Hooks/useServerTime';
+import { epochToGMTFormat, epochToLocalFormat } from 'Constants/moment';
 
-// TODO complete the functionality + add tests
 const ServerTime = () => {
-    const { t } = useTranslation();
+    const time = useServerTime();
+    const GMTFormat = epochToGMTFormat(time);
+    const localFormat = epochToLocalFormat(time);
 
     return (
-        <Tooltip className='border-x border-disabled-100 px-2 text-xs' content={t('2023-11-03 03:31:07 GMT')}>
-            <span>2023-11-03 03:31:07 GMT</span>
+        <Tooltip className='border-x border-disabled-100 px-2 text-xs' content={localFormat}>
+            <span>{GMTFormat}</span>
         </Tooltip>
     );
 };
