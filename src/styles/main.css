@@ -19,3 +19,15 @@
         @apply text-[1.375rem];
     }
 }
+.drowdown-item {
+    @apply bg-white p-2 hover:bg-slate-50 focus-visible:outline-transparent;
+}
+.drowdown-item-selected {
+    @apply bg-slate-100 p-2 focus-visible:outline-transparent;
+}
+.drop-down-trigger {
+    @apply border border-gray-200 p-1 focus-visible:outline-gray-100;
+}
+.drop-down-content {
+    @apply rounded shadow-md;
+}
