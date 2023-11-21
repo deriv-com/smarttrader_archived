@@ -17,7 +17,7 @@ describe('useNetworkStatus hook', () => {
             setSocketConnection: jest.fn(),
         });
         const { result } = renderHook(() => useNetworkStatus());
-        expect(result.current).toEqual({ className: 'bg-success', tooltip: 'Online' });
+        expect(result.current).toBe('online');
     });
 
     it('should return offline status when the user is offline', () => {
@@ -29,7 +29,7 @@ describe('useNetworkStatus hook', () => {
         });
         const { result } = renderHook(() => useNetworkStatus());
 
-        expect(result.current).toEqual({ className: 'bg-danger', tooltip: 'Offline' });
+        expect(result.current).toBe('offline');
         expect(closeMock).toHaveBeenCalled();
     });
 });

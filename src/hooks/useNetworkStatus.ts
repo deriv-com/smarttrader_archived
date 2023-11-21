@@ -42,13 +42,7 @@ const useNetworkStatus = () => {
         return () => clearTimeout(reconnectTimeout);
     }, [networkStatus, connection, setSocketConnection]);
 
-    const statusConfigs = {
-        online: { className: 'bg-success', tooltip: 'Online' },
-        offline: { className: 'bg-danger', tooltip: 'Offline' },
-        blinking: { className: 'animate-pulse bg-success', tooltip: 'Connecting to server' },
-    }[status];
-
-    return statusConfigs;
+    return status;
 };
 
 export default useNetworkStatus;
