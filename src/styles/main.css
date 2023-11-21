@@ -6,9 +6,6 @@
     body {
         @apply overflow-x-hidden font-ibm text-base font-normal leading-body text-prominent;
     }
-    p {
-        @apply mb-4;
-    }
     h1,
     h2,
     h3,

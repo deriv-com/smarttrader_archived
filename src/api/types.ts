@@ -589,7 +589,7 @@ type TSocketEndpoints = {
         response: StatesListResponse;
     };
     ticks_history: {
-        request: TicksHistoryRequest;
+        request: Omit<TicksHistoryRequest, 'count'> & { count?: number | string }; // count type from @deriv-api is wrong. Hence redefinition.
         response: TicksHistoryResponse;
     };
     ticks: {
@@ -731,3 +731,27 @@ export type TSocketPaginateableEndpointNames = KeysMatching<
     TSocketEndpoints,
     { request: { limit?: number; offset?: number } }
 >;
+
+export type TSocketError<T extends TSocketEndpointNames> = {
+    /**
+     * Echo of the request made.
+     */
+    echo_req: {
+        [k: string]: unknown;
+    };
+    /**
+     * Error object.
+     */
+    error: {
+        code: string;
+        message: string;
+    };
+    /**
+     * Action name of the request made.
+     */
+    msg_type: T;
+    /**
+     * [Optional] Used to map request to response.
+     */
+    req_id?: number;
+};
