@@ -1,12 +1,10 @@
-import { ComponentPropsWithoutRef, ElementRef, forwardRef, HTMLAttributes } from 'react';
+import { ComponentPropsWithoutRef, ElementRef, forwardRef, HTMLAttributes, PropsWithChildren, ReactNode } from 'react';
 import { Close, Content, Description, Overlay, Portal, Root, Title, Trigger } from '@radix-ui/react-dialog';
 import { Cross1Icon as CloseIcon } from '@radix-ui/react-icons';
 import { cn } from 'Utils/cn';
 
-const Dialog = Root;
 const DialogTrigger = Trigger;
 const DialogPortal = Portal;
-const DialogClose = Close;
 
 const DialogOverlay = forwardRef<ElementRef<typeof Overlay>, ComponentPropsWithoutRef<typeof Overlay>>(
     ({ className, ...props }, ref) => (
@@ -69,15 +67,24 @@ const DialogDescription = forwardRef<ElementRef<typeof Description>, ComponentPr
 );
 DialogDescription.displayName = Description.displayName;
 
-export {
-    Dialog,
-    DialogPortal,
-    DialogOverlay,
-    DialogClose,
-    DialogTrigger,
-    DialogContent,
-    DialogHeader,
-    DialogFooter,
-    DialogTitle,
-    DialogDescription,
+type TDialogProps = {
+    trigger: ReactNode;
+    title?: string | ReactNode;
+    footer?: ReactNode;
 };
+const Dialog = ({ trigger, title = '', children, footer = null, ...props }: PropsWithChildren<TDialogProps>) => {
+    return (
+        <Root>
+            <DialogTrigger>{trigger}</DialogTrigger>
+            <DialogContent>
+                <DialogHeader>
+                    {title && <DialogTitle>{title}</DialogTitle>}
+                    <DialogDescription {...props}>{children}</DialogDescription>
+                </DialogHeader>
+                {footer && <DialogFooter>{footer}</DialogFooter>}
+            </DialogContent>
+        </Root>
+    );
+};
+
+export default Dialog;

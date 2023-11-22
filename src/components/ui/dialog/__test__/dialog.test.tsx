@@ -1,104 +1,43 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from '../index';
+import Dialog from '../Dialog';
+
+const mock_props = {
+    title: 'mock title',
+    footer: <div>i am the footer content</div>,
+    trigger: <div>Trigger</div>,
+};
 
 describe('Dialog', () => {
+    const renderComponent = () => render(<Dialog {...mock_props}>This is the mock content</Dialog>);
     it('should render the Dialog component', () => {
-        render(<Dialog>Dialog</Dialog>);
-        const dialogElement = screen.getByText('Dialog');
+        renderComponent();
+        const dialogElement = screen.getByText('Trigger');
         expect(dialogElement).toBeInTheDocument();
     });
     it('should open the dialog modal when the trigger is clicked', async () => {
-        render(
-            <Dialog>
-                <DialogTrigger>Trigger</DialogTrigger>
-                <DialogContent>Content</DialogContent>
-            </Dialog>
-        );
+        renderComponent();
         const triggerElement = screen.getByText('Trigger');
         await userEvent.click(triggerElement);
-        expect(screen.getByText('Content')).toBeInTheDocument();
+        expect(screen.getByText('This is the mock content')).toBeInTheDocument();
     });
     it('should render the Header inside the Dialog', async () => {
-        render(
-            <Dialog>
-                <DialogTrigger>Trigger</DialogTrigger>
-                <DialogContent>
-                    <DialogHeader>Header</DialogHeader>
-                </DialogContent>
-            </Dialog>
-        );
+        renderComponent();
         await userEvent.click(screen.getByText('Trigger'));
-        const headerElement = screen.getByText('Header');
+        const headerElement = screen.getByText('mock title');
         expect(headerElement).toBeInTheDocument();
     });
     it('should display the Footer inside the Dialog', async () => {
-        render(
-            <Dialog>
-                <DialogTrigger>Trigger</DialogTrigger>
-                <DialogContent>
-                    <DialogHeader>Header</DialogHeader>
-                    <DialogFooter>Footer</DialogFooter>
-                </DialogContent>
-            </Dialog>
-        );
+        renderComponent();
         await userEvent.click(screen.getByText('Trigger'));
-        expect(screen.getByText('Footer')).toBeInTheDocument();
+        expect(screen.getByText('i am the footer content')).toBeInTheDocument();
     });
-    it('should render the Dialog Title', async () => {
-        render(
-            <Dialog>
-                <DialogTrigger>Trigger</DialogTrigger>
-                <DialogContent>
-                    <DialogHeader>
-                        <DialogTitle>Title</DialogTitle>
-                    </DialogHeader>
-                </DialogContent>
-            </Dialog>
-        );
-        await userEvent.click(screen.getByText('Trigger'));
-        expect(screen.getByText('Title')).toBeInTheDocument();
-    });
-    it('should render the Dialog description', async () => {
-        render(
-            <Dialog>
-                <DialogTrigger>Trigger</DialogTrigger>
-                <DialogContent>
-                    <DialogHeader>
-                        <DialogTitle>Title</DialogTitle>
-                        <DialogDescription>Description</DialogDescription>
-                    </DialogHeader>
-                </DialogContent>
-            </Dialog>
-        );
-
-        await userEvent.click(screen.getByText('Trigger'));
-        expect(screen.getByText('Description')).toBeInTheDocument();
-    });
-    it('should close the Dialog button on clicking close', async () => {
-        render(
-            <Dialog>
-                <DialogTrigger>Trigger</DialogTrigger>
-                <DialogContent>
-                    <DialogHeader>
-                        <DialogTitle>Title</DialogTitle>
-                        <DialogDescription>Description</DialogDescription>
-                    </DialogHeader>
-                </DialogContent>
-            </Dialog>
-        );
+    it('should close the modal on clicking close', async () => {
+        renderComponent();
         await userEvent.click(screen.getByText('Trigger'));
         const close = screen.getByRole('button', { name: 'Close' });
         expect(close).toBeInTheDocument();
         await userEvent.click(close);
-        expect(screen.queryByText('Description')).not.toBeInTheDocument();
+        expect(screen.queryByText('This is the mock content')).not.toBeInTheDocument();
     });
 });
