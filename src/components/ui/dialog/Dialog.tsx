@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ElementRef, forwardRef, HTMLAttributes, PropsWithChildren } from 'react';
+import { ComponentPropsWithoutRef, ElementRef, forwardRef, HTMLAttributes, PropsWithChildren, ReactNode } from 'react';
 import { Close, Content, Description, Overlay, Portal, Root, Title, Trigger } from '@radix-ui/react-dialog';
 import { Cross1Icon as CloseIcon } from '@radix-ui/react-icons';
 import { cn } from 'Utils/cn';
@@ -68,9 +68,9 @@ const DialogDescription = forwardRef<ElementRef<typeof Description>, ComponentPr
 DialogDescription.displayName = Description.displayName;
 
 type TDialogProps = {
-    trigger: React.ReactNode;
-    title?: string | React.ReactNode;
-    footer?: React.ReactNode;
+    trigger: ReactNode;
+    title?: string | ReactNode;
+    footer?: ReactNode;
 };
 const Dialog = ({ trigger, title = '', children, footer = null, ...props }: PropsWithChildren<TDialogProps>) => {
     return (
