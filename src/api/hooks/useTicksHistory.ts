@@ -9,7 +9,11 @@ const useTicksHistory = () => {
     const { subscribe: _subscribe, unsubscribe, data, ...rest } = useSubscription('ticks_history');
 
     const subscribe = useCallback(
-        (symbol: TTicksHistoryPayload['ticks_history'], granularity: TTicksHistoryPayload['granularity']) => {
+        (
+            symbol: TTicksHistoryPayload['ticks_history'],
+            granularity: TTicksHistoryPayload['granularity'],
+            count: TTicksHistoryPayload['count'] = 1000
+        ) => {
             const style: TTicksHistoryPayload['style'] = granularity ? 'candles' : 'ticks';
 
             return _subscribe({
@@ -17,7 +21,7 @@ const useTicksHistory = () => {
                     adjust_start_time: 1,
                     ticks_history: symbol,
                     end: 'latest',
-                    count: 1000,
+                    count,
                     granularity: granularity || undefined,
                     style,
                 },

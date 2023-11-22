@@ -47,5 +47,5 @@ export const storeClientAccounts = (
 
 export const getTopLevelDomain = () => {
     const current_domain = getCurrentDomain();
-    return current_domain ? current_domain.split('.').splice(-1) : 'com';
+    return current_domain ? current_domain.split('.').splice(-1).pop() : 'com';
 };
