@@ -1,4 +1,3 @@
-import { beforeEach, describe, expect, it } from 'vitest';
 import { getTopLevelDomain, storeClientAccounts } from 'Utils/utility';
 import useAuthorize from 'Api/hooks/useAuthorize';
 

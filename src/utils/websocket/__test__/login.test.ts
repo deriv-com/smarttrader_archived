@@ -1,5 +1,4 @@
 import { loginUrl } from 'Utils/login';
-import { beforeEach, describe, expect, it } from 'vitest';
 
 describe('loginUrl function', () => {
     beforeEach(() => {

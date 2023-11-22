@@ -1,5 +1,4 @@
 import { readLoginQueryParams, getActiveAuthTokenFromQueryParameters, deleteQueryParams } from 'Utils/url';
-import { describe, expect, it } from 'vitest';
 
 describe('readLoginQueryParams function', () => {
     it('should create correct object that correspond to query params', () => {

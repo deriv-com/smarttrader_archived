@@ -1,5 +1,4 @@
 import { getAccountsFromLocalStorage, getActiveAuthToken, getActiveLoginIdFromLocalStorage } from 'Utils/storage';
-import { beforeEach, describe, expect, it } from 'vitest';
 
 describe('getAccountsFromLocalStorage function', () => {
     beforeEach(() => {

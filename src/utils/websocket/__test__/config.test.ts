@@ -1,4 +1,3 @@
-import { beforeAll, beforeEach, describe, expect, it } from 'vitest';
 import { getAppId, getCurrentDomain, getSocketURL } from '../config';
 import { LOCALHOST_APP_ID, PRODUCTION_APP_ID, STAGING_APP_ID } from 'Constants/config';
 
